@@ -58,6 +58,7 @@ type Server struct {
 	EnableThumbnails      bool   `json:"enableThumbnails"`
 	ResizePreview         bool   `json:"resizePreview"`
 	EnableExec            bool   `json:"enableExec"`
+	EnableWebDAV          bool   `json:"enableWebDAV"`
 	TypeDetectionByHeader bool   `json:"typeDetectionByHeader"`
 	ImageResolutionCal    bool   `json:"imageResolutionCalculation"`
 	AuthHook              string `json:"authHook"`

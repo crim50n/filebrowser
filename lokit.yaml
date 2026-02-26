@@ -1,0 +1,41 @@
+source_lang: en
+languages:
+  - ar
+  - bg
+  - ca
+  - cs
+  - de
+  - el
+  - es
+  - fa
+  - fr
+  - he
+  - hr
+  - hu
+  - is
+  - it
+  - ja
+  - ko
+  - lv
+  - lv_LV
+  - nl
+  - nl-be
+  - no
+  - pl
+  - pt
+  - pt-br
+  - ro
+  - ru
+  - sk
+  - sv-se
+  - tr
+  - uk
+  - vi
+  - zh-cn
+  - zh-tw
+
+targets:
+  - name: frontend-i18n
+    type: vue-i18n
+    dir: frontend/src/i18n
+    path_pattern: "{lang}.json"

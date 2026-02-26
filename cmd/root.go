@@ -111,6 +111,7 @@ func addServerFlags(flags *pflag.FlagSet) {
 	flags.Bool("disableExec", true, "disables Command Runner feature")
 	flags.Bool("disableTypeDetectionByHeader", false, "disables type detection by reading file headers")
 	flags.Bool("disableImageResolutionCalc", false, "disables image resolution calculation by reading image files")
+	flags.Bool("enableWebDAV", false, "enables WebDAV feature")
 }
 
 var rootCmd = &cobra.Command{
@@ -353,6 +354,10 @@ func getServerSettings(v *viper.Viper, st *storage.Storage) (*settings.Server, e
 		server.EnableExec = !v.GetBool("disableExec")
 	}
 
+	if v.IsSet("enableWebDAV") {
+		server.EnableWebDAV = v.GetBool("enableWebDAV")
+	}
+
 	if isAddrSet && isSocketSet {
 		return nil, errors.New("--socket flag cannot be used with --address, --port, --key nor --cert")
 	}
@@ -457,6 +462,7 @@ func quickSetup(v *viper.Viper, s *storage.Storage) error {
 		EnableThumbnails:      !v.GetBool("disableThumbnails"),
 		ResizePreview:         !v.GetBool("disablePreviewResize"),
 		EnableExec:            !v.GetBool("disableExec"),
+		EnableWebDAV:          v.GetBool("enableWebDAV"),
 		TypeDetectionByHeader: !v.GetBool("disableTypeDetectionByHeader"),
 		ImageResolutionCal:    !v.GetBool("disableImageResolutionCalc"),
 	}
